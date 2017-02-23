@@ -14,7 +14,7 @@ func main() {
 	// FileServer : 、HTTPリクエストに対して、第一引数のrootを起点とするファイルシステムのコンテンツを返すハンドラを返す
 	// ここでいうrootは、resources
 
-	// つまり、resourcesディレクトリ以下の静的ファイルを探して返す
+	// つまり、resourcesディレクトリ以下の静的ファイル(ここでいうcss/index.css)を探して返す
 	http.Handle("/resources/", http.StripPrefix("/resources/", http.FileServer(http.Dir("resources/"))))
 	http.HandleFunc("/", Handler)
 	http.ListenAndServe(":8080", nil)
